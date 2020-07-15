@@ -2,11 +2,11 @@ const express = require('express');
 const routes = express.Router();
 
 routes.get("/", function(req, res) {
-    return res.redirect("/instructors");
+    return res.redirect("/teachers");
 });
 
-routes.get("/instructors", function(req, res) {
-    return res.render("instructors/index");
+routes.get("/teachers", function(req, res) {
+    return res.render("teachers/index");
 });
 
 routes.get("/students", function(req, res) {

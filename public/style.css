@@ -117,3 +117,16 @@ header {
     font-weight: bold;
     color: var(--primary-color);
 }
+
+.details .item div:nth-child(2) span {
+    padding: 8px 16px;
+    border-radius: 16px;
+    margin-right: 4px;
+    margin-top: 8px;
+    color: #777;
+    background-color: #ebd577;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+}
