@@ -9,6 +9,14 @@ routes.get("/teachers", function(req, res) {
     return res.render("teachers/index");
 });
 
+routes.get('/teachers/create', function(req, res) {
+    return res.render('teachers/create');
+});
+
+routes.post('/teachers', function(req, res) {
+    return res.send('Professor cadastrado com sucesso!');
+})
+
 routes.get("/students", function(req, res) {
     return res.render("students");
 });
