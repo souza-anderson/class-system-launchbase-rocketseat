@@ -1,5 +1,9 @@
 {% extends "layout.njk" %}
 
+{% block head %}
+    <title>Particular Class | Novo Professor</title>
+{% endblock head %}
+
 {% block content %}
 
     <form class="card" method="POST" action="/teachers">
@@ -17,6 +21,7 @@
                         type="url"
                         name="avatar_url"
                         placeholder="http://"
+                        required
                     >
                 </div>
             </div>
@@ -37,20 +42,29 @@
                 <div>
                     <input 
                         type="date" 
-                        name="birth"
+                        name="birth"                        
+                        required
                     >
                 </div>
             </div>
 
             <div class="item">
                 <div>Grau de Escolaridade</div>
-                <div>Doutorado</div>
+                <div>
+                    <select name="degree" required>
+                        <option value="">Escolha um grau de escolaridade</option>
+                        <option value="medio">Ensino médio completo</option>
+                        <option value="graduate">Ensino superior completo</option>
+                        <option value="master">Mestrado</option>
+                        <option value="phd">Doutorado</option>
+                    </select>
+                </div>
             </div>
 
             <div class="item">
                 <div>Tipo de Aula</div>
                 <div>
-                    <span><input type="radio" name="class_type" value="P" ckecked>Presencial</span>
+                    <span><input type="radio" name="class_type" value="P" checked>Presencial</span>
                     <span><input type="radio" name="class_type" value="D">À distância</span>
                 </div>
             </div>

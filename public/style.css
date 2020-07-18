@@ -125,8 +125,41 @@ header {
     margin-top: 8px;
     color: #777;
     background-color: #ebd577;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
     display: inline-block;
+}
+
+/* FORM */
+
+form select,
+form input {
+    width: 100%;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+form input[type=radio] {
+    width: initial;
+    margin-right: 16px;
+    vertical-align: middle;
+}
+
+form input::placeholder {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+form button[type=submit] {
+    padding: 16px 32px;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    width: 100%;
+    color: white;
+    margin-top: 32px;
+    font-size: 16px;
+    font-weight: bold;
 }

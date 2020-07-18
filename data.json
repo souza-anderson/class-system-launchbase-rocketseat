@@ -1,0 +1,24 @@
+{
+    "teachers": [
+        {
+            "id": 1,
+            "avatar_url": "http://www.google.com.br",
+            "name": "Anderson",
+            "birth": 1595110539631,
+            "degree": "master",
+            "class_type": "P",
+            "services": "Design Thinking, NodeJs",
+            "created_at": 1595110539631
+        },
+        {
+            "id": 2,
+            "avatar_url": "http://www.facebook.com",
+            "name": "Anderson Felipe",
+            "birth": 1595110565392,
+            "degree": "phd",
+            "class_type": "D",
+            "services": "Engenharia de software, Lógica de Programação",
+            "created_at": 1595110565392
+        }
+    ]
+}
