@@ -19,6 +19,16 @@
             "class_type": "D",
             "services": "Engenharia de software, Lógica de Programação",
             "created_at": 1595110565392
+        },
+        {
+            "id": 3,
+            "avatar_url": "http://www.facebook.com",
+            "name": "Anderson Felipe Barros de Souza",
+            "birth": 1595413094677,
+            "degree": "master",
+            "class_type": "D",
+            "services": "Design Thinking, NodeJs",
+            "created_at": 1595413094677
         }
     ]
 }
