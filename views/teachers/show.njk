@@ -10,7 +10,7 @@
     <div class="card">
         <section 
             class="avatar" 
-            style="background: url('{{ teacher.avatar_url }}') no-repeat center center / cover;">
+            style="background: url({{ teacher.avatar_url }}) no-repeat center center / cover;">
         </section>
         <section class="details">
             <h3>Detalhes</h3>
@@ -48,6 +48,8 @@
                 <div>Desde</div>
                 <div>{{ teacher.created_at }}</div>
             </div>
+
+            <a href="/teachers/{{ teacher.id }}/edit" class="button">Editar</a>
         </section>
     </div>
 

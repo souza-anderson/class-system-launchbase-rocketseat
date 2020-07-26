@@ -153,7 +153,8 @@ form input::placeholder {
     font-weight: normal;
 }
 
-form button[type=submit] {
+form button[type=submit],
+a.button {
     padding: 16px 32px;
     background-color: var(--primary-color);
     border-radius: 4px;
@@ -162,4 +163,10 @@ form button[type=submit] {
     margin-top: 32px;
     font-size: 16px;
     font-weight: bold;
+}
+
+a.button {
+    display: block;
+    text-align: center;
+    text-decoration: none;
 }
