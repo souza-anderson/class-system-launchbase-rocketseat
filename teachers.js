@@ -1,7 +1,9 @@
 
 const fs = require('fs');
 const data = require('./data.json');
+const intl = require('intl');
 const { age, graduation, date } = require('./utils');
+
 
 
 // create
@@ -48,16 +50,44 @@ exports.edit = function(req, res) {
     const foundTeacher = data.teachers.find(function(teacher) {
         return teacher.id == id;
     });
+    
+    if (!foundTeacher) return res.send('Teacher not found!');
 
     const teacher = {
         ...foundTeacher,
         birth: date(foundTeacher.birth)
     }
 
-    if (!foundTeacher) return res.send('Teacher not found!');
-
-
     return res.render('teachers/edit', { teacher });
+}
+
+// update
+exports.put = function(req, res) {
+    const { id } = req.body;
+    let index = 0;
+
+    const foundTeacher = data.teachers.find(function(teacher, foundIndex) {
+        if (id == teacher.id) {
+            index = foundIndex;
+            return true;
+        }
+    })
+
+    if (!foundTeacher) return res.send("Teacher not found!");
+
+    const teacher = {
+        ...foundTeacher,
+        ...req.body,
+        birth: Date.parse(req.body.birth)
+    }
+
+    data.teachers[index] = teacher;
+
+    fs.writeFile('data.json', JSON.stringify(data, null, 4), function(err) {
+        if (err) return res.send('Write file error!');
+        
+        return res.redirect(`/teachers/${id}`);
+    });
 }
 
 //find
@@ -76,8 +106,25 @@ exports.show = function(req, res) {
         age: age(foundTeacher.birth),
         degree: graduation(foundTeacher.degree),
         services: foundTeacher.services.split(","),
-        created_at: new Intl.DateTimeFormat('pt-BR').format(foundTeacher.created_at)
+        created_at: new intl.DateTimeFormat('pt-BR').format(foundTeacher.created_at)
     }
 
     return res.render('teachers/show', { teacher });
+}
+
+// delete
+exports.delete = function(req, res) {
+    const { id } = req.body;
+
+    const filteredTeachers = data.teachers.filter(function(teacher) {
+            return id != teacher.id;        
+    });
+
+    data.teachers = filteredTeachers;
+
+    fs.writeFile("data.json", JSON.stringify(data, null, 4), function(err) {
+        if (err) return res.send("Write file error!");
+
+        return res.redirect('/teachers');
+    })
 }

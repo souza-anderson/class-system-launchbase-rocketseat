@@ -92,8 +92,8 @@ header {
     border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-.details .item:last-child {
-    border: none;
+.details .item:last-of-type {
+    border-bottom: none;
 }
 
 .details .item div:nth-child(2) {
@@ -169,4 +169,9 @@ a.button {
     display: block;
     text-align: center;
     text-decoration: none;
+}
+
+#form-delete button[type=submit] {
+    margin-top: 8px;
+    background-color: rgb(224, 58, 58);
 }
