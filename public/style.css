@@ -175,3 +175,58 @@ a.button {
     margin-top: 8px;
     background-color: rgb(224, 58, 58);
 }
+
+/* ########### TEACHERS TABLE ########### */
+.table-container {
+    display: block;
+    box-sizing: border-box;
+    padding: 40px;
+}
+
+.table-container table {
+    border-spacing: 0;
+}
+
+
+.table-container table thead tr th,
+.table-container table tbody tr td {
+    padding: 16px;
+    border-bottom: 1px solid #d9d9d9;
+    text-align: center;
+}
+
+.table-container table tbody tr td:first-child {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    align-items: center;
+}
+
+.table-container table tbody tr td:first-child span {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 3px 1px 6px -4px black;
+    border: 2px solid white
+}
+
+.table-container table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-container table thead tr th {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 14px;
+}
+
+.table-container table tbody tr td:last-child a {
+    background-color: var(--primary-color);
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;   
+}
