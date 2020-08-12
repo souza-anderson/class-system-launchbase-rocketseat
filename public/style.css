@@ -118,7 +118,8 @@ header {
     color: var(--primary-color);
 }
 
-.details .item div:nth-child(2) span {
+.details .item div:nth-child(2) span,
+.services-table span {
     padding: 8px 16px;
     border-radius: 16px;
     margin-right: 4px;

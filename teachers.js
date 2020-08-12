@@ -7,7 +7,16 @@ const { age, graduation, date } = require('./utils');
 
 // list
 exports.index = function(req, res) {
-    return res.render("teachers/index", { teachers: data.teachers });
+    const teachers = data.teachers.map(function(teacher) {
+        const teacherFilter = {
+            ...teacher,
+            services: teacher.services.split(",")
+        }
+
+        return teacherFilter;
+    });
+
+    return res.render("teachers/index", { teachers });
 }
 
 // create
