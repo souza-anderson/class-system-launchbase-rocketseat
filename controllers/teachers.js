@@ -1,11 +1,9 @@
 
 const fs = require('fs');
-const data = require('./data.json');
+const data = require('../data.json');
 const intl = require('intl');
-const { age, graduation, date } = require('./utils');
+const { age, graduation, date } = require('../utils');
 
-
-// list
 exports.index = function(req, res) {
     const teachers = data.teachers.map(function(teacher) {
         const teacherFilter = {
@@ -19,7 +17,10 @@ exports.index = function(req, res) {
     return res.render("teachers/index", { teachers });
 }
 
-// create
+exports.create = function(req, res) {
+    return res.render('teachers/create');
+}
+
 exports.post = function(req, res) {
 
     const keys = Object.keys(req.body);
@@ -34,7 +35,7 @@ exports.post = function(req, res) {
 
     birth = Date.parse(birth);
     const created_at = Date.now();
-    const id = Number(data.teachers.length + 1);
+    const id = Number(data.teachers[data.teachers.length - 1].id + 1);
 
     data.teachers.push({
         id,
@@ -56,7 +57,6 @@ exports.post = function(req, res) {
     // return res.send(req.body);    
 }
 
-// edit
 exports.edit = function(req, res) {
     const { id } = req.params;
 
@@ -74,7 +74,6 @@ exports.edit = function(req, res) {
     return res.render('teachers/edit', { teacher });
 }
 
-// update
 exports.put = function(req, res) {
     const { id } = req.body;
     let index = 0;
@@ -104,7 +103,6 @@ exports.put = function(req, res) {
     });
 }
 
-//find
 exports.show = function(req, res) {
     const { id } = req.params;
 
@@ -126,7 +124,6 @@ exports.show = function(req, res) {
     return res.render('teachers/show', { teacher });
 }
 
-// delete
 exports.delete = function(req, res) {
     const { id } = req.body;
 
